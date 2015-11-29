@@ -45,7 +45,7 @@
           </div>
           <div class="navbar-custom-menu" style="float:left;margin-left:50px;">
               <ul class="nav navbar-nav menu-nav2">
-                  <li><a style="padding:15px;height:58px;background-color:#575398;" href="<?php echo base_url(); ?>admin/matriks_ahp">Setting Matriks AHP</a></li>
+                  <li><a style="padding:15px;height:58px;background-color:#C74433;" href="<?php echo base_url(); ?>admin/matriks_ahp">Setting Matriks AHP</a></li>
                   <li><a style="padding:15px;height:58px;" href="<?php echo base_url(); ?>admin/parameter_ppa">Penentuan Nilai Parameter</a></li>
               </ul>
           </div>
@@ -88,77 +88,77 @@
               <table class="display">
                 <thead>
                   <tr>
-                    <th>Kriteria Beasiswa</th>
-                    <th>IPK</th>
-                    <th>Semester</th>
-                    <th>Gaji Orang Tua</th>
-                    <th>Tanggungan</th>
-                    <th>Keaktifan Organisasi</th>
+                    <th style="background-color:#DD4B39;">Kriteria Beasiswa</th>
+                    <th style="background-color:#DD4B39;">IPK</th>
+                    <th style="background-color:#DD4B39;">Semester</th>
+                    <th style="background-color:#DD4B39;">Gaji Orang Tua</th>
+                    <th style="background-color:#DD4B39;">Tanggungan</th>
+                    <th style="background-color:#DD4B39;">Keaktifan Organisasi</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr class="odd">
                     <th>IPK</th>
-                    <td>1.00</td>
-                    <td>3.00</td>
-                    <td>7.00</td>
-                    <td>7.00</td>
-                    <td>5.00</td>
+                    <td><?php echo $ipk_ipk;?></td>
+                    <td><?php echo $ipk_semester;?></td>
+                    <td><?php echo $ipk_gaji;?></td>
+                    <td><?php echo $ipk_tanggungan;?></td>
+                    <td><?php echo $ipk_keaktifan;?></td>
                   </tr>
                   <tr class="even">
                     <th>Semester</th>
-                    <td>1.00</td>
-                    <td>3.00</td>
-                    <td>7.00</td>
-                    <td>7.00</td>
-                    <td>5.00</td>
+                    <td><?php echo $semester_ipk;?></td>
+                    <td><?php echo $semester_semester;?></td>
+                    <td><?php echo $semester_gaji;?></td>
+                    <td><?php echo $semester_tanggungan;?></td>
+                    <td><?php echo $semester_keaktifan;?></td>
                   </tr>
                   <tr class="odd">
                     <th>Gaji Orang Tua</th>
-                    <td>1.00</td>
-                    <td>3.00</td>
-                    <td>7.00</td>
-                    <td>7.00</td>
-                    <td>5.00</td>
+                    <td><?php echo $gaji_ipk;?></td>
+                    <td><?php echo $gaji_semester;?></td>
+                    <td><?php echo $gaji_gaji;?></td>
+                    <td><?php echo $gaji_tanggungan;?></td>
+                    <td><?php echo $gaji_keaktifan;?></td>
                   </tr>
                   <tr class="even">
                     <th>Tanggungan</th>
-                    <td>1.00</td>
-                    <td>3.00</td>
-                    <td>7.00</td>
-                    <td>7.00</td>
-                    <td>5.00</td>
+                    <td><?php echo $tanggungan_ipk;?></td>
+                    <td><?php echo $tanggungan_semester;?></td>
+                    <td><?php echo $tanggungan_gaji;?></td>
+                    <td><?php echo $tanggungan_tanggungan;?></td>
+                    <td><?php echo $tanggungan_keaktifan;?></td>
                   </tr>
                   <tr class="odd">
                     <th>Keaktifan Organisasi</th>
-                    <td>1.00</td>
-                    <td>3.00</td>
-                    <td>7.00</td>
-                    <td>7.00</td>
-                    <td>5.00</td>
+                    <td><?php echo $keaktifan_ipk;?></td>
+                    <td><?php echo $keaktifan_semester;?></td>
+                    <td><?php echo $keaktifan_gaji;?></td>
+                    <td><?php echo $keaktifan_tanggungan;?></td>
+                    <td><?php echo $keaktifan_keaktifan;?></td>
                   </tr>
                   <tr class="even">
                     <th>Total</th>
-                    <td>1.00</td>
-                    <td>3.00</td>
-                    <td>7.00</td>
-                    <td>7.00</td>
-                    <td>5.00</td>
+                    <td><?php echo $total_ipk;?></td>
+                    <td><?php echo $total_semester;?></td>
+                    <td><?php echo $total_gaji;?></td>
+                    <td><?php echo $total_tanggungan;?></td>
+                    <td><?php echo $total_keaktifan;?></td>
                   </tr>
-                  <tr style="background-color:green">
+                  <tr style="background-color:#4285F4">
                     <th>Nilai Prioritas</th>
-                    <td>1.00</td>
-                    <td>3.00</td>
-                    <td>7.00</td>
-                    <td>7.00</td>
-                    <td>5.00</td>
+                    <td><?php echo $bobot_ipk;?></td>
+                    <td><?php echo $bobot_semester;?></td>
+                    <td><?php echo $bobot_gaji;?></td>
+                    <td><?php echo $bobot_tanggungan;?></td>
+                    <td><?php echo $bobot_keaktifan;?></td>
                   </tr>
-                  <tr style="background-color:yellow">
-                    <td colspan="6">Nilai CR (Rasio Konsistensi) = 0.45</td>
+                  <tr style="background-color:#FBBC05">
+                    <td colspan="6">Nilai CR (Rasio Konsistensi) = <?php echo $cr;?></td>
                   </tr>
                 </tbody>
               </table>
-              <a id="submit-btn" class="btn btn-primary col-sm-12" style="background-color:#605CA8;margin-top:20px;" href="<?php echo base_url(); ?>admin/matriks_ahp_ubah"> Ubah Data</a>
+              <a id="submit-btn" class="btn btn-primary col-sm-12" style="background-color:#DD4B39;margin-top:20px;" href="<?php echo base_url(); ?>admin/matriks_ahp_ubah"> Ubah Data</a>
             </div>
           </div><!-- /.row (main row) -->
 

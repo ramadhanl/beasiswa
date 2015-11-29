@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Pendaftaran Beasiswa</title>
+    <title>Hasil Seleksi Beasiswa</title>
     <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/img/icon.png">
     
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/adminlte/bootstrap/css/bootstrap.css">
@@ -46,7 +46,7 @@
           <div class="navbar-custom-menu" style="float:left;margin-left:50px;">
               <ul class="nav navbar-nav menu-nav2">
                   <li><a style="padding:15px;height:58px;" href="<?php echo base_url(); ?>pegawai/proses_seleksi_ppa">Proses Seleksi</a></li>
-                  <li><a style="padding:15px;height:58px;background-color:#367FAA;" href="<?php echo base_url(); ?>pegawai/hasil_seleksi_ppa">Hasil Seleksi</a></li>
+                  <li><a style="padding:15px;height:58px;background-color:#C74433;" href="<?php echo base_url(); ?>pegawai/hasil_seleksi_ppa">Hasil Seleksi</a></li>
               </ul>
           </div>
           <div class="navbar-custom-menu">
@@ -81,80 +81,59 @@
               <table class="display">
                 <thead>
                   <tr>
-                    <th style="background-color:#367FAA;border:0px;border-right:5px;border-style:solid;border-color:black;"><a href="<?php echo base_url(); ?>pegawai/hasil_seleksi_ppa">Beasiswa PPA</a></th>
-                    <th style="border:0px;"><a href="<?php echo base_url(); ?>pegawai/hasil_seleksi_bpp">Beasiswa BPP</a></th>
+                    <th style="border:0px;background-color:#C74433;"><a href="<?php echo base_url(); ?>pegawai/hasil_seleksi_ppa">Beasiswa PPA</a></th>
+                    <th style="border:0px;background-color:#DD4B39;"><a href="<?php echo base_url(); ?>pegawai/hasil_seleksi_bpp">Beasiswa BPP</a></th>
                   </tr>
                 </thead>
               </table>
-              <table class="display" style="margin-bottom:0px;">
+              <table class="display" style="margin-top:30px;margin-bottom:20px;border:0px;">
                 <thead>
                   <tr>
-                    <th style="background-color:#ECF0F5;color:black;">Daftar Penerima Beasiswa PPA</th>
+                    <th style="background-color:#ECF0F5;color:black;border:0px;">Hasil Seleksi Beasiswa PPA</th>
                   </tr>
                 </thead>
               </table>
-              <table class="display">
-                <thead>
-                  <tr>
-                    <th>No</th>
-                    <th>Nama Mahasiswa Pendaftar</th>
-                    <th>Kode Prodi</th>
-                    <th>Entering Flow</th>
-                    <th>Leaving Flow</th>
-                    <th>Net Flow</th>
-                    <th>Peringkat</th>
-                  </tr>
-                </thead>
+              <table class="display" style="border-color:black;">
+                <?php
+                $this->db->order_by("ranking", "asc");
+                $query = $this->db->get_where('form_beasiswa_ppa');
+                $count=0;
+                foreach ($query->result() as $row) {
+                  $count++;}
+                if($count!=0)
+                  echo '<thead>
+                          <tr>
+                            <th style="background-color:#DD4B39;">Peringkat</th>
+                            <th style="background-color:#DD4B39;">Nama Mahasiswa Pendaftar</th>
+                            <th style="background-color:#DD4B39;">Entering Flow</th>
+                            <th style="background-color:#DD4B39;">Leaving Flow</th>
+                            <th style="background-color:#DD4B39;">Net Flow</th>
+                          </tr>
+                        </thead>';
+                  else
+                    echo "<p style='text-align:center'>[Data kosong]</p>";
+                ?>
                 <tbody>
-                  <tr class="odd">
-                    <td>1</td>
-                    <td>Qonita Luthfia Sutino</td>
-                    <td>3.5</td>
-                    <td>7</td>
-                    <td>1</td>
-                    <td>3</td>
-                    <td>10</td>
-                  </tr>
-                  <tr class="even">
-                    <td>2</td>
-                    <td>Qonita Luthfia Sutino</td>
-                    <td>3.5</td>
-                    <td>7</td>
-                    <td>1</td>
-                    <td>3</td>
-                    <td>10</td>
-                  </tr>
-                  <tr class="odd">
-                    <td>3</td>
-                    <td>Qonita Luthfia Sutino</td>
-                    <td>3.5</td>
-                    <td>7</td>
-                    <td>1</td>
-                    <td>3</td>
-                    <td>10</td>
-                  </tr>
-                  <tr class="even">
-                    <td>4</td>
-                    <td>Qonita Luthfia Sutino</td>
-                    <td>3.5</td>
-                    <td>7</td>
-                    <td>1</td>
-                    <td>3</td>
-                    <td>10</td>
-                  </tr>
-                  <tr class="odd">
-                    <td>5</td>
-                    <td>Qonita Luthfia Sutino</td>
-                    <td>3.5</td>
-                    <td>7</td>
-                    <td>1</td>
-                    <td>3</td>
-                    <td>10</td>
-                  </tr>
+                <?php
+                $this->db->order_by("ranking", "asc");
+                $query = $this->db->get_where('form_beasiswa_ppa');
+                foreach ($query->result() as $row) {
+                  echo "<tr style='";
+                  if($row->ranking<=50)
+                    echo "border:1px solid black;background-color:#4285F4'>";
+                  else
+                    echo "border:1px solid black;'>";
+                  echo "<td style='text-align:center'>".$row->ranking."</td>";
+                  echo "<td style='text-align:center'>".$row->nama_mhs."</td>";
+                  echo "<td style='text-align:center'>".$row->entering_flow."</td>";
+                  echo "<td style='text-align:center'>".$row->leaving_flow."</td>";
+                  echo "<td style='text-align:center'>".$row->net_flow."</td>";
+                  echo "</tr>";
+                }
+                ?>
                 </tbody>
               </table>
-              <input id="submit-btn" class="btn btn-primary col-sm-12" style="background-color:#3C8DBC;margin-top:20px;" type="submit" value="Proses Data">
-            </div>
+              </div>
           </div><!-- /.row (main row) -->
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->

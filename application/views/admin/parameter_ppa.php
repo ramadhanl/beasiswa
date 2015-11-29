@@ -46,7 +46,7 @@
           <div class="navbar-custom-menu" style="float:left;margin-left:50px;">
               <ul class="nav navbar-nav menu-nav2">
                   <li><a style="padding:15px;height:58px;" href="<?php echo base_url(); ?>admin/matriks_ahp">Setting Matriks AHP</a></li>
-                  <li><a style="padding:15px;height:58px;background-color:#575398;" href="<?php echo base_url(); ?>admin/parameter_ppa">Penentuan Nilai Parameter</a></li>
+                  <li><a style="padding:15px;height:58px;background-color:#C74433;" href="<?php echo base_url(); ?>admin/parameter_ppa">Penentuan Nilai Parameter</a></li>
               </ul>
           </div>
           <div class="navbar-custom-menu">
@@ -81,8 +81,8 @@
               <table class="display">
                 <thead>
                   <tr>
-                    <th style="background-color:#575398;border:0px;border-right:5px;border-style:solid;border-color:black;"><a href="<?php echo base_url(); ?>pegawai/proses_seleksi_ppa">Beasiswa PPA</a></th>
-                    <th style="border:0px;"><a href="<?php echo base_url(); ?>admin/parameter_bpp">Beasiswa BPP</a></th>
+                    <th style="background-color:#C74433;border:0px;border-right:5px;border-style:solid;border-color:black;"><a href="<?php echo base_url(); ?>pegawai/proses_seleksi_ppa">Beasiswa PPA</a></th>
+                    <th style="border:0px;background-color:#DD4B39;"><a href="<?php echo base_url(); ?>admin/parameter_bpp">Beasiswa BPP</a></th>
                   </tr>
                 </thead>
               </table>
@@ -111,54 +111,30 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr class="odd">
-                    <td>1</td>
-                    <td>IPK</td>
-                    <td>Maksimasi</td>
-                    <td>V</td>
-                    <td>0.482</td>
-                    <td>0</td>
-                    <td>0.95</td>
-                  </tr>
-                  <tr class="even">
-                    <td>2</td>
-                    <td>Semester</td>
-                    <td>Maksimasi</td>
-                    <td>V</td>
-                    <td>0.482</td>
-                    <td>0</td>
-                    <td>0.95</td>
-                  </tr>
-                  <tr class="odd">
-                    <td>3</td>
-                    <td>Gaji Ortu</td>
-                    <td>Maksimasi</td>
-                    <td>V</td>
-                    <td>0.482</td>
-                    <td>0</td>
-                    <td>0.95</td>
-                  </tr>
-                  <tr class="even">
-                    <td>4</td>
-                    <td>Tanggungan</td>
-                    <td>Maksimasi</td>
-                    <td>V</td>
-                    <td>0.482</td>
-                    <td>0</td>
-                    <td>0.95</td>
-                  </tr>
-                  <tr class="odd">
-                    <td>5</td>
-                    <td>Keaktifan Organisasi</td>
-                    <td>Maksimasi</td>
-                    <td>V</td>
-                    <td>0.482</td>
-                    <td>0</td>
-                    <td>0.95</td>
-                  </tr>
+                  <?php
+                for ($i=1; $i <=5 ; $i++) { 
+                  $row = $this->db->get_where('parameter_ppa', array('id_parameter' => $i))->row();
+                  echo "<tr class='";
+                  if($row->id_parameter%2==0)
+                    echo "even'>";
+                  else
+                    echo "odd'>";
+                  echo "<td>".$row->id_parameter."</td>";
+                  echo "<td>".$row->nama_kriteria."</td>";
+                  if($row->kaidah==1)
+                    echo "<td>Maksimasi</td>";
+                  else
+                    echo "<td>Minimasi</td>";
+                  echo "<td>".$row->tipe."</td>";
+                  echo "<td>".$row->bobot."</td>";
+                  echo "<td>".$row->q."</td>";
+                  echo "<td>".$row->p."</td>";
+                  echo "</tr>";
+                }
+                ?>
                 </tbody>
               </table>
-              <a id="submit-btn" class="btn btn-primary col-sm-12" style="background-color:#605CA8;margin-top:20px;" href="<?php echo base_url(); ?>admin/parameter_ppa_ubah"> Ubah Data</a>
+              <a id="submit-btn" class="btn btn-primary col-sm-12" style="background-color:#DD4B39;margin-top:20px;" href="<?php echo base_url(); ?>admin/parameter_ppa_ubah"> Ubah Data</a>
             </div>
           </div><!-- /.row (main row) -->
         </section><!-- /.content -->

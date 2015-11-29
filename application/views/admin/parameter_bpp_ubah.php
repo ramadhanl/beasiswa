@@ -46,7 +46,7 @@
           <div class="navbar-custom-menu" style="float:left;margin-left:50px;">
               <ul class="nav navbar-nav menu-nav2">
                   <li><a style="padding:15px;height:58px;" href="<?php echo base_url(); ?>admin/matriks_ahp">Setting Matriks AHP</a></li>
-                  <li><a style="padding:15px;height:58px;background-color:#575398;" href="<?php echo base_url(); ?>admin/parameter_ppa">Penentuan Nilai Parameter</a></li>
+                  <li><a style="padding:15px;height:58px;background-color:#C74433;" href="<?php echo base_url(); ?>admin/parameter_ppa">Penentuan Nilai Parameter</a></li>
               </ul>
           </div>
           <div class="navbar-custom-menu">
@@ -81,18 +81,19 @@
               <table class="display">
                 <thead>
                   <tr>
-                    <th style="border:0px;border-right:5px;border-style:solid;border-color:black;"><a href="<?php echo base_url(); ?>admin/parameter_ppa">Beasiswa PPA</a></th>
-                    <th style="background-color:#575398;"><a href="<?php echo base_url(); ?>admin/parameter_bpp">Beasiswa BPP</a></th>
+                    <th style="border:0px;border-right:5px;border-style:solid;border-color:black;"><a href="<?php echo base_url(); ?>pegawai/proses_seleksi_ppa">Beasiswa PPA</a></th>
+                    <th style="border:0px;background-color:#C74433;"><a href="<?php echo base_url(); ?>admin/parameter_bpp">Beasiswa BPP</a></th>
                   </tr>
                 </thead>
               </table>
               <table class="display" style="margin-bottom:0px;">
                 <thead>
                   <tr>
-                    <th style="background-color:#ECF0F5;color:black;">Ubah Nilai Parameter Beasiswa BPP</th>
+                    <th style="background-color:#ECF0F5;color:black;">Nilai Parameter Beasiswa PPA</th>
                   </tr>
                 </thead>
               </table>
+              <form action="<?php echo base_url(); ?>admin/proses_ubah_parameter_bpp" method="POST">
               <table class="display">
                 <thead>
                   <tr>
@@ -111,119 +112,45 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr class="odd">
-                    <td>1</td>
-                    <td>IPK</td>
-                    <td>
-                      <select name="IPK" class="form-control">
-                        <option value="1">Maksimum</option>
-                        <option value="0">Minimum</option>
-                      </select>
-                    </td>
-                    <td>
-                      <select name="IPK" class="form-control">
-                        <option value="1">I</option>
-                        <option value="2">II</option>
-                        <option value="3">III</option>
-                        <option value="4">IV</option>
-                        <option value="5">V</option>
-                      </select>
-                    </td>
-                    <td><input type="text" placeholder="0.482"></td>
-                    <td><input type="text" placeholder="0"></td>
-                    <td><input type="text" placeholder="0.95"></td>
-                  </tr>
-                  <tr class="even">
-                    <td>2</td>
-                    <td>Semester</td>
-                    <td>
-                      <select name="IPK" class="form-control">
-                        <option value="1">Maksimum</option>
-                        <option value="0">Minimum</option>
-                      </select>
-                    </td>
-                    <td>
-                      <select name="IPK" class="form-control">
-                        <option value="1">I</option>
-                        <option value="2">II</option>
-                        <option value="3">III</option>
-                        <option value="4">IV</option>
-                        <option value="5">V</option>
-                      </select>
-                    </td>
-                    <td><input type="text" placeholder="0.482"></td>
-                    <td><input type="text" placeholder="0"></td>
-                    <td><input type="text" placeholder="0.95"></td>
-                  </tr>
-                  <tr class="odd">
-                    <td>3</td>
-                    <td>Gaji Ortu</td>
-                    <td>
-                      <select name="IPK" class="form-control">
-                        <option value="1">Maksimum</option>
-                        <option value="0">Minimum</option>
-                      </select>
-                    </td>
-                    <td>
-                      <select name="IPK" class="form-control">
-                        <option value="1">I</option>
-                        <option value="2">II</option>
-                        <option value="3">III</option>
-                        <option value="4">IV</option>
-                        <option value="5">V</option>
-                      </select>
-                    </td>
-                    <td><input type="text" placeholder="0.482"></td>
-                    <td><input type="text" placeholder="0"></td>
-                    <td><input type="text" placeholder="0.95"></td>
-                  </tr>
-                  <tr class="even">
-                    <td>4</td>
-                    <td>Tanggungan</td>
-                    <td>
-                      <select name="IPK" class="form-control">
-                        <option value="1">Maksimum</option>
-                        <option value="0">Minimum</option>
-                      </select>
-                    </td>
-                    <td>
-                      <select name="IPK" class="form-control">
-                        <option value="1">I</option>
-                        <option value="2">II</option>
-                        <option value="3">III</option>
-                        <option value="4">IV</option>
-                        <option value="5">V</option>
-                      </select>
-                    </td>
-                    <td><input type="text" placeholder="0.482"></td>
-                    <td><input type="text" placeholder="0"></td>
-                    <td><input type="text" placeholder="0.95"></td>
-                  </tr>
-                  <tr class="odd">
-                    <td>5</td>
-                    <td>Keaktifan Organisasi</td>
-                    <td>
-                      <select name="IPK" class="form-control">
-                        <option value="1">Maksimum</option>
-                        <option value="0">Minimum</option>
-                      </select>
-                    </td>
-                    <td>
-                      <select name="IPK" class="form-control">
-                        <option value="1">I</option>
-                        <option value="2">II</option>
-                        <option value="3">III</option>
-                        <option value="4">IV</option>
-                        <option value="5">V</option>
-                      </select>
-                    </td>
-                    <td><input type="text" placeholder="0.482"></td>
-                    <td><input type="text" placeholder="0"></td>
-                    <td><input type="text" placeholder="0.95"></td>
-                  </tr>
+                <?php
+                for ($i=1; $i <=5 ; $i++) { 
+                  $row = $this->db->get_where('parameter_bpp', array('id_parameter' => $i))->row();
+                  echo "<tr class='";
+                  if($row->id_parameter%2==0)
+                    echo "even'>";
+                  else
+                    echo "odd'>";
+                  echo "<td>".$row->id_parameter."</td>";
+                  echo "<td>".$row->nama_kriteria."</td>";
+                  echo "<td>
+                        <select name='".$row->nama_kriteria."_kaidah' class='form-control'>
+                            <option value='1'";
+                  if($row->kaidah==1)echo "selected";
+                  echo">Maksimum</option>
+                            <option value='2'";
+                  if($row->kaidah==2)echo "selected";
+                  echo ">Minimum</option>
+                        </select>
+                        </td>";
+                  echo "<td>
+                        <select name='".$row->nama_kriteria."_tipe' class='form-control'>
+                            <option value='1'";if($row->tipe==1)echo "selected";echo ">I</option>
+                            <option value='2'";if($row->tipe==2)echo "selected";echo ">II</option>
+                            <option value='3'";if($row->tipe==3)echo "selected";echo ">III</option>
+                            <option value='4'";if($row->tipe==4)echo "selected";echo ">IV</option>
+                            <option value='5'";if($row->tipe==5)echo "selected";echo ">V</option>
+                        </select>
+                        </td>";
+                  echo "<td><input name='".$row->nama_kriteria."_bobot' type='text' value='".$row->bobot."'></td>";
+                  echo "<td><input name='".$row->nama_kriteria."_q' type='text' value='".$row->q."'></td>";
+                  echo "<td><input name='".$row->nama_kriteria."_p' type='text' value='".$row->p."'></td>";
+                  echo "</tr>";
+                }
+                ?>
                 </tbody>
               </table>
-              <input id="submit-btn" class="btn btn-primary col-sm-12" style="background-color:#605CA8;margin-top:20px;" type="submit" value="Ubah Data">
+              <input id="submit-btn" class="btn btn-primary col-sm-12" style="background-color:#DD4B39;margin-top:20px;" type="submit" value="Simpan">
+              </form>
             </div>
           </div><!-- /.row (main row) -->
         </section><!-- /.content -->

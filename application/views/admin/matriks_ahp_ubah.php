@@ -45,7 +45,7 @@
           </div>
           <div class="navbar-custom-menu" style="float:left;margin-left:50px;">
               <ul class="nav navbar-nav menu-nav2">
-                  <li><a style="padding:15px;height:58px;background-color:#575398;" href="<?php echo base_url(); ?>admin/matriks_ahp">Setting Matriks AHP</a></li>
+                  <li><a style="padding:15px;height:58px;background-color:#C64332;" href="<?php echo base_url(); ?>admin/matriks_ahp">Setting Matriks AHP</a></li>
                   <li><a style="padding:15px;height:58px;" href="<?php echo base_url(); ?>admin/parameter_ppa">Penentuan Nilai Parameter</a></li>
               </ul>
           </div>
@@ -85,307 +85,365 @@
                   </tr>
                 </thead>
               </table>
-              <table class="display">
+              <table class="display" style="border:1px solid black;">
                 <thead>
                   <tr>
-                    <th>Kriteria Beasiswa</th>
-                    <th>IPK</th>
-                    <th>Semester</th>
-                    <th>Gaji Orang Tua</th>
-                    <th>Tanggungan</th>
-                    <th>Keaktifan Organisasi</th>
+                    <th style="background-color:#DD4B39;">Kriteria Beasiswa</th>
+                    <th style="background-color:#DD4B39;">IPK</th>
+                    <th style="background-color:#DD4B39;">Semester</th>
+                    <th style="background-color:#DD4B39;">Gaji Orang Tua</th>
+                    <th style="background-color:#DD4B39;">Tanggungan</th>
+                    <th style="background-color:#DD4B39;">Keaktifan Organisasi</th>
                   </tr>
                 </thead>
                 <tbody>
+                <form action="<?php echo base_url(); ?>admin/proses_ubah_matriks" method="POST">
                   <tr class="odd">
-                    <th>IPK</th>
+                    <td>IPK</td>
                     <td>
-                      <select name="IPK" class="form-control">
-                        <option value="1">1</option>
-                        <option value="0">0</option>
-                      </select>
+                    <select class="form-control" name="ipk_ipk" value="<?php echo $ipk_ipk;?>">
+                      <option value="9" <?php  if($ipk_ipk==9)echo "selected";?>>9</option>
+                      <option value="8" <?php  if($ipk_ipk==8)echo "selected";?>>8</option>
+                      <option value="7"<?php  if($ipk_ipk==7)echo "selected";?>>7</option>
+                      <option value="6"<?php  if($ipk_ipk==6)echo "selected";?>>6</option>
+                      <option value="5"<?php  if($ipk_ipk==5)echo "selected";?>>5</option>
+                      <option value="4"<?php  if($ipk_ipk==4)echo "selected";?>>4</option>
+                      <option value="3"<?php  if($ipk_ipk==3)echo "selected";?>>3</option>
+                      <option value="2"<?php  if($ipk_ipk==2)echo "selected";?>>2</option>
+                      <option value="1"<?php  if($ipk_ipk==1)echo "selected";?>>1</option>
+                      <option value="<?php echo 1/2?>"<?php  if($ipk_ipk==1/2)echo "selected";?>>1/2</option>
+                      <option value="<?php echo 1/3?>"<?php  if($ipk_ipk==1/3)echo "selected";?>>1/3</option>
+                      <option value="<?php echo 1/4?>"<?php  if($ipk_ipk==1/4)echo "selected";?>>1/4</option>
+                      <option value="<?php echo 1/5?>"<?php  if($ipk_ipk==1/5)echo "selected";?>>1/5</option>
+                      <option value="<?php echo 1/6?>"<?php  if($ipk_ipk==1/6)echo "selected";?>>1/6</option>
+                      <option value="<?php echo 1/7?>"<?php  if($ipk_ipk==1/7)echo "selected";?>>1/7</option>
+                      <option value="<?php echo 1/8?>"<?php  if($ipk_ipk==1/8)echo "selected";?>>1/8</option>
+                      <option value="<?php echo 1/9?>"<?php  if($ipk_ipk==1/9)echo "selected";?>>1/9</option>
+                    </select>
                     </td>
                     <td>
-                      <select name="IPK" class="form-control">
-                        <option value="-9">-9</option>
-                        <option value="-8">-8</option>
-                        <option value="-7">-7</option>
-                        <option value="-6">-6</option>
-                        <option value="-5">-5</option>
-                        <option value="-4">-4</option>
-                        <option value="-3">-3</option>
-                        <option value="-2">-2</option>
-                        <option value="-1">-1</option>
-                        <option value="0">-0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                      </select>
+                    <select class="form-control" name="ipk_semester">
+                      <option value="9" <?php  if($ipk_semester==9)echo "selected";?>>9</option>
+                      <option value="8" <?php  if($ipk_semester==8)echo "selected";?>>8</option>
+                      <option value="7"<?php  if($ipk_semester==7)echo "selected";?>>7</option>
+                      <option value="6"<?php  if($ipk_semester==6)echo "selected";?>>6</option>
+                      <option value="5"<?php  if($ipk_semester==5)echo "selected";?>>5</option>
+                      <option value="4"<?php  if($ipk_semester==4)echo "selected";?>>4</option>
+                      <option value="3"<?php  if($ipk_semester==3)echo "selected";?>>3</option>
+                      <option value="2"<?php  if($ipk_semester==2)echo "selected";?>>2</option>
+                      <option value="1"<?php  if($ipk_semester==1)echo "selected";?>>1</option>
+                      <option value="<?php echo 1/2?>"<?php  if($ipk_semester==1/2)echo "selected";?>>1/2</option>
+                      <option value="<?php echo 1/3?>"<?php  if($ipk_semester==1/3)echo "selected";?>>1/3</option>
+                      <option value="<?php echo 1/4?>"<?php  if($ipk_semester==1/4)echo "selected";?>>1/4</option>
+                      <option value="<?php echo 1/5?>"<?php  if($ipk_semester==1/5)echo "selected";?>>1/5</option>
+                      <option value="<?php echo 1/6?>"<?php  if($ipk_semester==1/6)echo "selected";?>>1/6</option>
+                      <option value="<?php echo 1/7?>"<?php  if($ipk_semester==1/7)echo "selected";?>>1/7</option>
+                      <option value="<?php echo 1/8?>"<?php  if($ipk_semester==1/8)echo "selected";?>>1/8</option>
+                      <option value="<?php echo 1/9?>"<?php  if($ipk_semester==1/9)echo "selected";?>>1/9</option>
+                    </select>
                     </td>
                     <td>
-                      <select name="IPK" class="form-control">
-                        <option value="-9">-9</option>
-                        <option value="-8">-8</option>
-                        <option value="-7">-7</option>
-                        <option value="-6">-6</option>
-                        <option value="-5">-5</option>
-                        <option value="-4">-4</option>
-                        <option value="-3">-3</option>
-                        <option value="-2">-2</option>
-                        <option value="-1">-1</option>
-                        <option value="0">-0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                      </select>
+                    <select class="form-control" name="ipk_gaji">
+                      <option value="9" <?php  if($ipk_gaji==9)echo "selected";?>>9</option>
+                      <option value="8" <?php  if($ipk_gaji==8)echo "selected";?>>8</option>
+                      <option value="7"<?php  if($ipk_gaji==7)echo "selected";?>>7</option>
+                      <option value="6"<?php  if($ipk_gaji==6)echo "selected";?>>6</option>
+                      <option value="5"<?php  if($ipk_gaji==5)echo "selected";?>>5</option>
+                      <option value="4"<?php  if($ipk_gaji==4)echo "selected";?>>4</option>
+                      <option value="3"<?php  if($ipk_gaji==3)echo "selected";?>>3</option>
+                      <option value="2"<?php  if($ipk_gaji==2)echo "selected";?>>2</option>
+                      <option value="1"<?php  if($ipk_gaji==1)echo "selected";?>>1</option>
+                      <option value="<?php echo 1/2?>"<?php  if($ipk_gaji==1/2)echo "selected";?>>1/2</option>
+                      <option value="<?php echo 1/3?>"<?php  if($ipk_gaji==1/3)echo "selected";?>>1/3</option>
+                      <option value="<?php echo 1/4?>"<?php  if($ipk_gaji==1/4)echo "selected";?>>1/4</option>
+                      <option value="<?php echo 1/5?>"<?php  if($ipk_gaji==1/5)echo "selected";?>>1/5</option>
+                      <option value="<?php echo 1/6?>"<?php  if($ipk_gaji==1/6)echo "selected";?>>1/6</option>
+                      <option value="<?php echo 1/7?>"<?php  if($ipk_gaji==1/7)echo "selected";?>>1/7</option>
+                      <option value="<?php echo 1/8?>"<?php  if($ipk_gaji==1/8)echo "selected";?>>1/8</option>
+                      <option value="<?php echo 1/9?>"<?php  if($ipk_gaji==1/9)echo "selected";?>>1/9</option>
+                    </select>
                     </td>
                     <td>
-                      <select name="IPK" class="form-control">
-                        <option value="-9">-9</option>
-                        <option value="-8">-8</option>
-                        <option value="-7">-7</option>
-                        <option value="-6">-6</option>
-                        <option value="-5">-5</option>
-                        <option value="-4">-4</option>
-                        <option value="-3">-3</option>
-                        <option value="-2">-2</option>
-                        <option value="-1">-1</option>
-                        <option value="0">-0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                      </select>
+                    <select class="form-control" name="ipk_tanggungan">
+                      <option value="9" <?php  if($ipk_tanggungan==9)echo "selected";?>>9</option>
+                      <option value="8" <?php  if($ipk_tanggungan==8)echo "selected";?>>8</option>
+                      <option value="7"<?php  if($ipk_tanggungan==7)echo "selected";?>>7</option>
+                      <option value="6"<?php  if($ipk_tanggungan==6)echo "selected";?>>6</option>
+                      <option value="5"<?php  if($ipk_tanggungan==5)echo "selected";?>>5</option>
+                      <option value="4"<?php  if($ipk_tanggungan==4)echo "selected";?>>4</option>
+                      <option value="3"<?php  if($ipk_tanggungan==3)echo "selected";?>>3</option>
+                      <option value="2"<?php  if($ipk_tanggungan==2)echo "selected";?>>2</option>
+                      <option value="1"<?php  if($ipk_tanggungan==1)echo "selected";?>>1</option>
+                      <option value="<?php echo 1/2?>"<?php  if($ipk_tanggungan==1/2)echo "selected";?>>1/2</option>
+                      <option value="<?php echo 1/3?>"<?php  if($ipk_tanggungan==1/3)echo "selected";?>>1/3</option>
+                      <option value="<?php echo 1/4?>"<?php  if($ipk_tanggungan==1/4)echo "selected";?>>1/4</option>
+                      <option value="<?php echo 1/5?>"<?php  if($ipk_tanggungan==1/5)echo "selected";?>>1/5</option>
+                      <option value="<?php echo 1/6?>"<?php  if($ipk_tanggungan==1/6)echo "selected";?>>1/6</option>
+                      <option value="<?php echo 1/7?>"<?php  if($ipk_tanggungan==1/7)echo "selected";?>>1/7</option>
+                      <option value="<?php echo 1/8?>"<?php  if($ipk_tanggungan==1/8)echo "selected";?>>1/8</option>
+                      <option value="<?php echo 1/9?>"<?php  if($ipk_tanggungan==1/9)echo "selected";?>>1/9</option>
+                    </select>
                     </td>
                     <td>
-                      <select name="IPK" class="form-control">
-                        <option value="-9">-9</option>
-                        <option value="-8">-8</option>
-                        <option value="-7">-7</option>
-                        <option value="-6">-6</option>
-                        <option value="-5">-5</option>
-                        <option value="-4">-4</option>
-                        <option value="-3">-3</option>
-                        <option value="-2">-2</option>
-                        <option value="-1">-1</option>
-                        <option value="0">-0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                      </select>
+                    <select class="form-control" name="ipk_keaktifan">
+                      <option value="9" <?php  if($ipk_keaktifan==9)echo "selected";?>>9</option>
+                      <option value="8" <?php  if($ipk_keaktifan==8)echo "selected";?>>8</option>
+                      <option value="7"<?php  if($ipk_keaktifan==7)echo "selected";?>>7</option>
+                      <option value="6"<?php  if($ipk_keaktifan==6)echo "selected";?>>6</option>
+                      <option value="5"<?php  if($ipk_keaktifan==5)echo "selected";?>>5</option>
+                      <option value="4"<?php  if($ipk_keaktifan==4)echo "selected";?>>4</option>
+                      <option value="3"<?php  if($ipk_keaktifan==3)echo "selected";?>>3</option>
+                      <option value="2"<?php  if($ipk_keaktifan==2)echo "selected";?>>2</option>
+                      <option value="1"<?php  if($ipk_keaktifan==1)echo "selected";?>>1</option>
+                      <option value="<?php echo 1/2?>"<?php  if($ipk_keaktifan==1/2)echo "selected";?>>1/2</option>
+                      <option value="<?php echo 1/3?>"<?php  if($ipk_keaktifan==1/3)echo "selected";?>>1/3</option>
+                      <option value="<?php echo 1/4?>"<?php  if($ipk_keaktifan==1/4)echo "selected";?>>1/4</option>
+                      <option value="<?php echo 1/5?>"<?php  if($ipk_keaktifan==1/5)echo "selected";?>>1/5</option>
+                      <option value="<?php echo 1/6?>"<?php  if($ipk_keaktifan==1/6)echo "selected";?>>1/6</option>
+                      <option value="<?php echo 1/7?>"<?php  if($ipk_keaktifan==1/7)echo "selected";?>>1/7</option>
+                      <option value="<?php echo 1/8?>"<?php  if($ipk_keaktifan==1/8)echo "selected";?>>1/8</option>
+                      <option value="<?php echo 1/9?>"<?php  if($ipk_keaktifan==1/9)echo "selected";?>>1/9</option>
+                    </select>
                     </td>
 
                   </tr>
                   <tr class="even">
-                    <th>Semester</th>
+                    <td>Semester</td>
                     <td></td>
                     <td>
-                      <select name="IPK" class="form-control">
-                        <option value="1">1</option>
-                        <option value="0">0</option>
-                      </select>
+                    <select class="form-control" name="semester_semester">
+                      <option value="9" <?php  if($semester_semester==9)echo "selected";?>>9</option>
+                      <option value="8" <?php  if($semester_semester==8)echo "selected";?>>8</option>
+                      <option value="7"<?php  if($semester_semester==7)echo "selected";?>>7</option>
+                      <option value="6"<?php  if($semester_semester==6)echo "selected";?>>6</option>
+                      <option value="5"<?php  if($semester_semester==5)echo "selected";?>>5</option>
+                      <option value="4"<?php  if($semester_semester==4)echo "selected";?>>4</option>
+                      <option value="3"<?php  if($semester_semester==3)echo "selected";?>>3</option>
+                      <option value="2"<?php  if($semester_semester==2)echo "selected";?>>2</option>
+                      <option value="1"<?php  if($semester_semester==1)echo "selected";?>>1</option>
+                      <option value="<?php echo 1/2?>"<?php  if($semester_semester==1/2)echo "selected";?>>1/2</option>
+                      <option value="<?php echo 1/3?>"<?php  if($semester_semester==1/3)echo "selected";?>>1/3</option>
+                      <option value="<?php echo 1/4?>"<?php  if($semester_semester==1/4)echo "selected";?>>1/4</option>
+                      <option value="<?php echo 1/5?>"<?php  if($semester_semester==1/5)echo "selected";?>>1/5</option>
+                      <option value="<?php echo 1/6?>"<?php  if($semester_semester==1/6)echo "selected";?>>1/6</option>
+                      <option value="<?php echo 1/7?>"<?php  if($semester_semester==1/7)echo "selected";?>>1/7</option>
+                      <option value="<?php echo 1/8?>"<?php  if($semester_semester==1/8)echo "selected";?>>1/8</option>
+                      <option value="<?php echo 1/9?>"<?php  if($semester_semester==1/9)echo "selected";?>>1/9</option>
+                    </select>
                     </td>
                     <td>
-                      <select name="IPK" class="form-control">
-                        <option value="-9">-9</option>
-                        <option value="-8">-8</option>
-                        <option value="-7">-7</option>
-                        <option value="-6">-6</option>
-                        <option value="-5">-5</option>
-                        <option value="-4">-4</option>
-                        <option value="-3">-3</option>
-                        <option value="-2">-2</option>
-                        <option value="-1">-1</option>
-                        <option value="0">-0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                      </select>
+                    <select class="form-control" name="semester_gaji">
+                      <option value="9" <?php  if($semester_gaji==9)echo "selected";?>>9</option>
+                      <option value="8" <?php  if($semester_gaji==8)echo "selected";?>>8</option>
+                      <option value="7"<?php  if($semester_gaji==7)echo "selected";?>>7</option>
+                      <option value="6"<?php  if($semester_gaji==6)echo "selected";?>>6</option>
+                      <option value="5"<?php  if($semester_gaji==5)echo "selected";?>>5</option>
+                      <option value="4"<?php  if($semester_gaji==4)echo "selected";?>>4</option>
+                      <option value="3"<?php  if($semester_gaji==3)echo "selected";?>>3</option>
+                      <option value="2"<?php  if($semester_gaji==2)echo "selected";?>>2</option>
+                      <option value="1"<?php  if($semester_gaji==1)echo "selected";?>>1</option>
+                      <option value="<?php echo 1/2?>"<?php  if($semester_gaji==1/2)echo "selected";?>>1/2</option>
+                      <option value="<?php echo 1/3?>"<?php  if($semester_gaji==1/3)echo "selected";?>>1/3</option>
+                      <option value="<?php echo 1/4?>"<?php  if($semester_gaji==1/4)echo "selected";?>>1/4</option>
+                      <option value="<?php echo 1/5?>"<?php  if($semester_gaji==1/5)echo "selected";?>>1/5</option>
+                      <option value="<?php echo 1/6?>"<?php  if($semester_gaji==1/6)echo "selected";?>>1/6</option>
+                      <option value="<?php echo 1/7?>"<?php  if($semester_gaji==1/7)echo "selected";?>>1/7</option>
+                      <option value="<?php echo 1/8?>"<?php  if($semester_gaji==1/8)echo "selected";?>>1/8</option>
+                      <option value="<?php echo 1/9?>"<?php  if($semester_gaji==1/9)echo "selected";?>>1/9</option>
+                    </select>
                     </td>
                     <td>
-                      <select name="IPK" class="form-control">
-                        <option value="-9">-9</option>
-                        <option value="-8">-8</option>
-                        <option value="-7">-7</option>
-                        <option value="-6">-6</option>
-                        <option value="-5">-5</option>
-                        <option value="-4">-4</option>
-                        <option value="-3">-3</option>
-                        <option value="-2">-2</option>
-                        <option value="-1">-1</option>
-                        <option value="0">-0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                      </select>
+                    <select class="form-control" name="semester_tanggungan">
+                      <option value="9" <?php  if($semester_tanggungan==9)echo "selected";?>>9</option>
+                      <option value="8" <?php  if($semester_tanggungan==8)echo "selected";?>>8</option>
+                      <option value="7"<?php  if($semester_tanggungan==7)echo "selected";?>>7</option>
+                      <option value="6"<?php  if($semester_tanggungan==6)echo "selected";?>>6</option>
+                      <option value="5"<?php  if($semester_tanggungan==5)echo "selected";?>>5</option>
+                      <option value="4"<?php  if($semester_tanggungan==4)echo "selected";?>>4</option>
+                      <option value="3"<?php  if($semester_tanggungan==3)echo "selected";?>>3</option>
+                      <option value="2"<?php  if($semester_tanggungan==2)echo "selected";?>>2</option>
+                      <option value="1"<?php  if($semester_tanggungan==1)echo "selected";?>>1</option>
+                      <option value="<?php echo 1/2?>"<?php  if($semester_tanggungan==1/2)echo "selected";?>>1/2</option>
+                      <option value="<?php echo 1/3?>"<?php  if($semester_tanggungan==1/3)echo "selected";?>>1/3</option>
+                      <option value="<?php echo 1/4?>"<?php  if($semester_tanggungan==1/4)echo "selected";?>>1/4</option>
+                      <option value="<?php echo 1/5?>"<?php  if($semester_tanggungan==1/5)echo "selected";?>>1/5</option>
+                      <option value="<?php echo 1/6?>"<?php  if($semester_tanggungan==1/6)echo "selected";?>>1/6</option>
+                      <option value="<?php echo 1/7?>"<?php  if($semester_tanggungan==1/7)echo "selected";?>>1/7</option>
+                      <option value="<?php echo 1/8?>"<?php  if($semester_tanggungan==1/8)echo "selected";?>>1/8</option>
+                      <option value="<?php echo 1/9?>"<?php  if($semester_tanggungan==1/9)echo "selected";?>>1/9</option>
+                    </select>
                     </td>
                     <td>
-                      <select name="IPK" class="form-control">
-                        <option value="-9">-9</option>
-                        <option value="-8">-8</option>
-                        <option value="-7">-7</option>
-                        <option value="-6">-6</option>
-                        <option value="-5">-5</option>
-                        <option value="-4">-4</option>
-                        <option value="-3">-3</option>
-                        <option value="-2">-2</option>
-                        <option value="-1">-1</option>
-                        <option value="0">-0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                      </select>
+                    <select class="form-control" name="semester_keaktifan">
+                      <option value="9" <?php  if($semester_keaktifan==9)echo "selected";?>>9</option>
+                      <option value="8" <?php  if($semester_keaktifan==8)echo "selected";?>>8</option>
+                      <option value="7"<?php  if($semester_keaktifan==7)echo "selected";?>>7</option>
+                      <option value="6"<?php  if($semester_keaktifan==6)echo "selected";?>>6</option>
+                      <option value="5"<?php  if($semester_keaktifan==5)echo "selected";?>>5</option>
+                      <option value="4"<?php  if($semester_keaktifan==4)echo "selected";?>>4</option>
+                      <option value="3"<?php  if($semester_keaktifan==3)echo "selected";?>>3</option>
+                      <option value="2"<?php  if($semester_keaktifan==2)echo "selected";?>>2</option>
+                      <option value="1"<?php  if($semester_keaktifan==1)echo "selected";?>>1</option>
+                      <option value="<?php echo 1/2?>"<?php  if($semester_keaktifan==1/2)echo "selected";?>>1/2</option>
+                      <option value="<?php echo 1/3?>"<?php  if($semester_keaktifan==1/3)echo "selected";?>>1/3</option>
+                      <option value="<?php echo 1/4?>"<?php  if($semester_keaktifan==1/4)echo "selected";?>>1/4</option>
+                      <option value="<?php echo 1/5?>"<?php  if($semester_keaktifan==1/5)echo "selected";?>>1/5</option>
+                      <option value="<?php echo 1/6?>"<?php  if($semester_keaktifan==1/6)echo "selected";?>>1/6</option>
+                      <option value="<?php echo 1/7?>"<?php  if($semester_keaktifan==1/7)echo "selected";?>>1/7</option>
+                      <option value="<?php echo 1/8?>"<?php  if($semester_keaktifan==1/8)echo "selected";?>>1/8</option>
+                      <option value="<?php echo 1/9?>"<?php  if($semester_keaktifan==1/9)echo "selected";?>>1/9</option>
+                    </select>
                     </td>
                   </tr>
                   <tr class="odd">
-                    <th>Gaji Orang Tua</th>
+                    <td>Gaji Orang Tua</td>
                     <td></td>
                     <td></td>
                     <td>
-                      <select name="IPK" class="form-control">
-                        <option value="1">1</option>
-                        <option value="0">0</option>
-                      </select>
+                    <select class="form-control" name="gaji_gaji">
+                      <option value="9" <?php  if($gaji_gaji==9)echo "selected";?>>9</option>
+                      <option value="8" <?php  if($gaji_gaji==8)echo "selected";?>>8</option>
+                      <option value="7"<?php  if($gaji_gaji==7)echo "selected";?>>7</option>
+                      <option value="6"<?php  if($gaji_gaji==6)echo "selected";?>>6</option>
+                      <option value="5"<?php  if($gaji_gaji==5)echo "selected";?>>5</option>
+                      <option value="4"<?php  if($gaji_gaji==4)echo "selected";?>>4</option>
+                      <option value="3"<?php  if($gaji_gaji==3)echo "selected";?>>3</option>
+                      <option value="2"<?php  if($gaji_gaji==2)echo "selected";?>>2</option>
+                      <option value="1"<?php  if($gaji_gaji==1)echo "selected";?>>1</option>
+                      <option value="<?php echo 1/2?>"<?php  if($gaji_gaji==1/2)echo "selected";?>>1/2</option>
+                      <option value="<?php echo 1/3?>"<?php  if($gaji_gaji==1/3)echo "selected";?>>1/3</option>
+                      <option value="<?php echo 1/4?>"<?php  if($gaji_gaji==1/4)echo "selected";?>>1/4</option>
+                      <option value="<?php echo 1/5?>"<?php  if($gaji_gaji==1/5)echo "selected";?>>1/5</option>
+                      <option value="<?php echo 1/6?>"<?php  if($gaji_gaji==1/6)echo "selected";?>>1/6</option>
+                      <option value="<?php echo 1/7?>"<?php  if($gaji_gaji==1/7)echo "selected";?>>1/7</option>
+                      <option value="<?php echo 1/8?>"<?php  if($gaji_gaji==1/8)echo "selected";?>>1/8</option>
+                      <option value="<?php echo 1/9?>"<?php  if($gaji_gaji==1/9)echo "selected";?>>1/9</option>
+                    </select></td>
+                    <td>
+                    <select class="form-control" name="gaji_tanggungan">
+                      <option value="9" <?php  if($gaji_tanggungan==9)echo "selected";?>>9</option>
+                      <option value="8" <?php  if($gaji_tanggungan==8)echo "selected";?>>8</option>
+                      <option value="7"<?php  if($gaji_tanggungan==7)echo "selected";?>>7</option>
+                      <option value="6"<?php  if($gaji_tanggungan==6)echo "selected";?>>6</option>
+                      <option value="5"<?php  if($gaji_tanggungan==5)echo "selected";?>>5</option>
+                      <option value="4"<?php  if($gaji_tanggungan==4)echo "selected";?>>4</option>
+                      <option value="3"<?php  if($gaji_tanggungan==3)echo "selected";?>>3</option>
+                      <option value="2"<?php  if($gaji_tanggungan==2)echo "selected";?>>2</option>
+                      <option value="1"<?php  if($gaji_tanggungan==1)echo "selected";?>>1</option>
+                      <option value="<?php echo 1/2?>"<?php  if($gaji_tanggungan==1/2)echo "selected";?>>1/2</option>
+                      <option value="<?php echo 1/3?>"<?php  if($gaji_tanggungan==1/3)echo "selected";?>>1/3</option>
+                      <option value="<?php echo 1/4?>"<?php  if($gaji_tanggungan==1/4)echo "selected";?>>1/4</option>
+                      <option value="<?php echo 1/5?>"<?php  if($gaji_tanggungan==1/5)echo "selected";?>>1/5</option>
+                      <option value="<?php echo 1/6?>"<?php  if($gaji_tanggungan==1/6)echo "selected";?>>1/6</option>
+                      <option value="<?php echo 1/7?>"<?php  if($gaji_tanggungan==1/7)echo "selected";?>>1/7</option>
+                      <option value="<?php echo 1/8?>"<?php  if($gaji_tanggungan==1/8)echo "selected";?>>1/8</option>
+                      <option value="<?php echo 1/9?>"<?php  if($gaji_tanggungan==1/9)echo "selected";?>>1/9</option>
+                    </select>
                     </td>
                     <td>
-                      <select name="IPK" class="form-control">
-                        <option value="-9">-9</option>
-                        <option value="-8">-8</option>
-                        <option value="-7">-7</option>
-                        <option value="-6">-6</option>
-                        <option value="-5">-5</option>
-                        <option value="-4">-4</option>
-                        <option value="-3">-3</option>
-                        <option value="-2">-2</option>
-                        <option value="-1">-1</option>
-                        <option value="0">-0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                      </select>
-                    </td>
-                    <td>
-                      <select name="IPK" class="form-control">
-                        <option value="-9">-9</option>
-                        <option value="-8">-8</option>
-                        <option value="-7">-7</option>
-                        <option value="-6">-6</option>
-                        <option value="-5">-5</option>
-                        <option value="-4">-4</option>
-                        <option value="-3">-3</option>
-                        <option value="-2">-2</option>
-                        <option value="-1">-1</option>
-                        <option value="0">-0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                      </select>
+                    <select class="form-control" name="gaji_keaktifan">
+                      <option value="9" <?php  if($gaji_keaktifan==9)echo "selected";?>>9</option>
+                      <option value="8" <?php  if($gaji_keaktifan==8)echo "selected";?>>8</option>
+                      <option value="7"<?php  if($gaji_keaktifan==7)echo "selected";?>>7</option>
+                      <option value="6"<?php  if($gaji_keaktifan==6)echo "selected";?>>6</option>
+                      <option value="5"<?php  if($gaji_keaktifan==5)echo "selected";?>>5</option>
+                      <option value="4"<?php  if($gaji_keaktifan==4)echo "selected";?>>4</option>
+                      <option value="3"<?php  if($gaji_keaktifan==3)echo "selected";?>>3</option>
+                      <option value="2"<?php  if($gaji_keaktifan==2)echo "selected";?>>2</option>
+                      <option value="1"<?php  if($gaji_keaktifan==1)echo "selected";?>>1</option>
+                      <option value="<?php echo 1/2?>"<?php  if($gaji_keaktifan==1/2)echo "selected";?>>1/2</option>
+                      <option value="<?php echo 1/3?>"<?php  if($gaji_keaktifan==1/3)echo "selected";?>>1/3</option>
+                      <option value="<?php echo 1/4?>"<?php  if($gaji_keaktifan==1/4)echo "selected";?>>1/4</option>
+                      <option value="<?php echo 1/5?>"<?php  if($gaji_keaktifan==1/5)echo "selected";?>>1/5</option>
+                      <option value="<?php echo 1/6?>"<?php  if($gaji_keaktifan==1/6)echo "selected";?>>1/6</option>
+                      <option value="<?php echo 1/7?>"<?php  if($gaji_keaktifan==1/7)echo "selected";?>>1/7</option>
+                      <option value="<?php echo 1/8?>"<?php  if($gaji_keaktifan==1/8)echo "selected";?>>1/8</option>
+                      <option value="<?php echo 1/9?>"<?php  if($gaji_keaktifan==1/9)echo "selected";?>>1/9</option>
+                    </select>
                     </td>
                   </tr>
                   <tr class="even">
-                    <th>Tanggungan</th>
+                    <td>Tanggungan</td>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td>
-                      <select name="IPK" class="form-control">
-                        <option value="1">1</option>
-                        <option value="0">0</option>
-                      </select>
+                    <select class="form-control" name="tanggungan_tanggungan">
+                      <option value="9" <?php  if($tanggungan_tanggungan==9)echo "selected";?>>9</option>
+                      <option value="8" <?php  if($tanggungan_tanggungan==8)echo "selected";?>>8</option>
+                      <option value="7"<?php  if($tanggungan_tanggungan==7)echo "selected";?>>7</option>
+                      <option value="6"<?php  if($tanggungan_tanggungan==6)echo "selected";?>>6</option>
+                      <option value="5"<?php  if($tanggungan_tanggungan==5)echo "selected";?>>5</option>
+                      <option value="4"<?php  if($tanggungan_tanggungan==4)echo "selected";?>>4</option>
+                      <option value="3"<?php  if($tanggungan_tanggungan==3)echo "selected";?>>3</option>
+                      <option value="2"<?php  if($tanggungan_tanggungan==2)echo "selected";?>>2</option>
+                      <option value="1"<?php  if($tanggungan_tanggungan==1)echo "selected";?>>1</option>
+                      <option value="<?php echo 1/2?>"<?php  if($tanggungan_tanggungan==1/2)echo "selected";?>>1/2</option>
+                      <option value="<?php echo 1/3?>"<?php  if($tanggungan_tanggungan==1/3)echo "selected";?>>1/3</option>
+                      <option value="<?php echo 1/4?>"<?php  if($tanggungan_tanggungan==1/4)echo "selected";?>>1/4</option>
+                      <option value="<?php echo 1/5?>"<?php  if($tanggungan_tanggungan==1/5)echo "selected";?>>1/5</option>
+                      <option value="<?php echo 1/6?>"<?php  if($tanggungan_tanggungan==1/6)echo "selected";?>>1/6</option>
+                      <option value="<?php echo 1/7?>"<?php  if($tanggungan_tanggungan==1/7)echo "selected";?>>1/7</option>
+                      <option value="<?php echo 1/8?>"<?php  if($tanggungan_tanggungan==1/8)echo "selected";?>>1/8</option>
+                      <option value="<?php echo 1/9?>"<?php  if($tanggungan_tanggungan==1/9)echo "selected";?>>1/9</option>
+                    </select>
                     </td>
                     <td>
-                      <select name="IPK" class="form-control">
-                        <option value="-9">-9</option>
-                        <option value="-8">-8</option>
-                        <option value="-7">-7</option>
-                        <option value="-6">-6</option>
-                        <option value="-5">-5</option>
-                        <option value="-4">-4</option>
-                        <option value="-3">-3</option>
-                        <option value="-2">-2</option>
-                        <option value="-1">-1</option>
-                        <option value="0">-0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                      </select>
+                    <select class="form-control" name="tanggungan_keaktifan">
+                      <option value="9" <?php  if($tanggungan_keaktifan==9)echo "selected";?>>9</option>
+                      <option value="8" <?php  if($tanggungan_keaktifan==8)echo "selected";?>>8</option>
+                      <option value="7"<?php  if($tanggungan_keaktifan==7)echo "selected";?>>7</option>
+                      <option value="6"<?php  if($tanggungan_keaktifan==6)echo "selected";?>>6</option>
+                      <option value="5"<?php  if($tanggungan_keaktifan==5)echo "selected";?>>5</option>
+                      <option value="4"<?php  if($tanggungan_keaktifan==4)echo "selected";?>>4</option>
+                      <option value="3"<?php  if($tanggungan_keaktifan==3)echo "selected";?>>3</option>
+                      <option value="2"<?php  if($tanggungan_keaktifan==2)echo "selected";?>>2</option>
+                      <option value="1"<?php  if($tanggungan_keaktifan==1)echo "selected";?>>1</option>
+                      <option value="<?php echo 1/2?>"<?php  if($tanggungan_keaktifan==1/2)echo "selected";?>>1/2</option>
+                      <option value="<?php echo 1/3?>"<?php  if($tanggungan_keaktifan==1/3)echo "selected";?>>1/3</option>
+                      <option value="<?php echo 1/4?>"<?php  if($tanggungan_keaktifan==1/4)echo "selected";?>>1/4</option>
+                      <option value="<?php echo 1/5?>"<?php  if($tanggungan_keaktifan==1/5)echo "selected";?>>1/5</option>
+                      <option value="<?php echo 1/6?>"<?php  if($tanggungan_keaktifan==1/6)echo "selected";?>>1/6</option>
+                      <option value="<?php echo 1/7?>"<?php  if($tanggungan_keaktifan==1/7)echo "selected";?>>1/7</option>
+                      <option value="<?php echo 1/8?>"<?php  if($tanggungan_keaktifan==1/8)echo "selected";?>>1/8</option>
+                      <option value="<?php echo 1/9?>"<?php  if($tanggungan_keaktifan==1/9)echo "selected";?>>1/9</option>
+                    </select>
                     </td>
                   </tr>
                   <tr class="odd">
-                    <th>Keaktifan Organisasi</th>
+                    <td>Keaktifan Organisasi</td>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td>
-                      <select name="IPK" class="form-control">
-                        <option value="1">1</option>
-                        <option value="0">0</option>
-                      </select>
+                    <select class="form-control" name="keaktifan_keaktifan">
+                      <option value="9" <?php  if($keaktifan_keaktifan==9)echo "selected";?>>9</option>
+                      <option value="8" <?php  if($keaktifan_keaktifan==8)echo "selected";?>>8</option>
+                      <option value="7"<?php  if($keaktifan_keaktifan==7)echo "selected";?>>7</option>
+                      <option value="6"<?php  if($keaktifan_keaktifan==6)echo "selected";?>>6</option>
+                      <option value="5"<?php  if($keaktifan_keaktifan==5)echo "selected";?>>5</option>
+                      <option value="4"<?php  if($keaktifan_keaktifan==4)echo "selected";?>>4</option>
+                      <option value="3"<?php  if($keaktifan_keaktifan==3)echo "selected";?>>3</option>
+                      <option value="2"<?php  if($keaktifan_keaktifan==2)echo "selected";?>>2</option>
+                      <option value="1"<?php  if($keaktifan_keaktifan==1)echo "selected";?>>1</option>
+                      <option value="<?php echo 1/2?>"<?php  if($keaktifan_keaktifan==1/2)echo "selected";?>>1/2</option>
+                      <option value="<?php echo 1/3?>"<?php  if($keaktifan_keaktifan==1/3)echo "selected";?>>1/3</option>
+                      <option value="<?php echo 1/4?>"<?php  if($keaktifan_keaktifan==1/4)echo "selected";?>>1/4</option>
+                      <option value="<?php echo 1/5?>"<?php  if($keaktifan_keaktifan==1/5)echo "selected";?>>1/5</option>
+                      <option value="<?php echo 1/6?>"<?php  if($keaktifan_keaktifan==1/6)echo "selected";?>>1/6</option>
+                      <option value="<?php echo 1/7?>"<?php  if($keaktifan_keaktifan==1/7)echo "selected";?>>1/7</option>
+                      <option value="<?php echo 1/8?>"<?php  if($keaktifan_keaktifan==1/8)echo "selected";?>>1/8</option>
+                      <option value="<?php echo 1/9?>"<?php  if($keaktifan_keaktifan==1/9)echo "selected";?>>1/9</option>
+                    </select>
                     </td>
                   </tr>
                 </tbody>
               </table>
-              <input id="submit-btn" class="btn btn-primary col-sm-12" style="background-color:#605CA8;margin-top:20px;" type="submit" value="Simpan Perubahan">
+              <input id="submit-btn" class="btn btn-primary col-sm-12" style="background-color:#DD4B39;margin-top:20px;" type="submit" value="Simpan Perubahan">
+              <?php if($salah==1)
+                    echo "<p style='text-align:center;padding-top:70px;'> Nilai Rasio Konsistensi lebih besar dari 10% </p>";?>
+              </form>
             </div>
           </div><!-- /.row (main row) -->
 

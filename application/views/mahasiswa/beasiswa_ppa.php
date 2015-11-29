@@ -102,74 +102,67 @@
                   <!-- tools box -->
                   </div>
                 <div class="box-body">
-                  <form action="#" method="post">
+                  <form action="<?php echo base_url(); ?>home/insert_ppa" method="post">
                     <div class="form-group">
-                      <label>Nama :</label><input type="text" class="form-control" name="nama" placeholder="Nama">
+                      <label>NPM :</label><input type="text" class="form-control" name="npm" placeholder="NPM">
                     </div>
                     <div class="form-group">
-                      <label>NPM :</label><input type="text" class="form-control" name="nama" placeholder="NPM">
+                      <label>Nama :</label><input type="text" class="form-control" name="nama_mhs" placeholder="Nama">
                     </div>
                     <div class="form-group">
-                      <label>Alamat :</label><input type="text" class="form-control" name="nama" placeholder="Alamat">
+                      <label>JK :</label>
+                      <select name="jk" class="form-control">
+                        <option value="Laki-laki">Laki-laki</option>
+                        <option value="Perempuan">Perempuan</option>
+                      </select>
                     </div>
                     <div class="form-group">
-                      <label>Email :</label><input type="text" class="form-control" name="nama" placeholder="Email">
+                      <label>Prodi :</label><input type="text" class="form-control" name="prodi" placeholder="Prodi">
                     </div>
                     <div class="form-group">
-                      <label>Kode Prodi :</label>
-                      <select name="level_gaji_ortu" class="form-control">
-                        <option value="57201">57201</option>
-                        <option value="57202">57202</option>
-                        <option value="57203">57203</option>
+                      <label>Jenjang :</label>
+                      <select name="jenjang" class="form-control">
+                        <option value="D3">D3</option>
+                        <option value="S1">S1</option>
+                        <option value="S2">S2</option>
+                        <option value="S3">S3</option>
                       </select>
                     </div>
                     <div class="form-group">
                       <label>Semester :</label>
-                      <select name="level_gaji_ortu" class="form-control">
+                      <select name="smt" class="form-control">
                         <option value="1">1</option>
                         <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
                       </select>
                     </div>
                     <div class="form-group">
                       <label>IPK :</label>
-                      <input type="text" class="form-control" name="nama" placeholder="IPK">
-                    </div>
-                    <div class="form-group">
-                      <label>Keaktifan Organisasi :</label>
-                      <select name="level_gaji_ortu" class="form-control">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                      </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Unggah berkas bukti keaktifan organisasi </label>
-                        <input type="file">
-                    </div>
-                    <div class="form-group">
-                      <label>Nama Ayah :</label>
-                      <input type="text" class="form-control" name="nama" placeholder="Nama Ayah">
-                    </div>
-                    <div class="form-group">
-                      <label>Nama Ibu :</label>
-                      <input type="text" class="form-control" name="nama" placeholder="Nama Ibu">
+                      <input type="text" class="form-control" name="ipk" placeholder="IPK">
                     </div>
                     <div class="form-group">
                       <label>Pekerjaan :</label>
-                      <select name="level_gaji_ortu" class="form-control">
-                        <option value="1">1. Pegawai Negeri Sipil</option>
-                        <option value="2">2. Pegawai Swasta</option>
-                      </select>
+                      <input type="text" class="form-control" name="pekerjaan" placeholder="Pekerjaan">
                     </div>
                     <div class="form-group">
                         <label>Tanggungan :</label>
                         <div>
-                            <input name="jumlah_tanggungan_ortu" type="text" class="form-control">
+                            <input name="jml_tanggungan" type="text" class="form-control">
                         </div>
                     </div>
                     <div class="form-group">
                         <label>Penghasilan Ortu :</label>
                         <div>
-                            <select name="level_gaji_ortu" class="form-control">
+                            <select name="penghasilan" class="form-control">
                               <option value="1">Golongan 1 ( < Rp 500.000,00 )</option>
                               <option value="2">Golongan 2 ( Rp 500.000,00 s/d Rp 1.500.000,00 )</option>
                               <option value="3">Golongan 3 ( Rp 1.500.000,00 s/d Rp 3.000.000,00 )</option>
@@ -179,10 +172,19 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>Unggah bukti penghasilan Orang tua </label>
-                            <input type="file">
+                      <label>Prestasi :</label>
+                      <select name="prestasi" class="form-control">
+                        <option value="1">Ada</option>
+                        <option value="0">Tidak ada</option>
+                      </select>
                     </div>
-                  <input type="hidden" value="1" name="tipe_beasiswa">
+                    <div class="form-group">
+                      <label>Alamat :</label><input type="text" class="form-control" name="alamat" placeholder="Alamat">
+                    </div>
+                    <div class="form-group">
+                      <label>Telepon :</label>
+                      <input type="text" class="form-control" name="telepon" placeholder="Telepon">
+                    </div>
                   <input id="submit-btn" class="btn btn-primary col-sm-12" style="background-color:#DD4B39;" href="index.html" type="submit" value="Kirim formulir">
 
               </div>

@@ -30,7 +30,7 @@
     <!-- bootstrap wysihtml5 - text editor -->
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/adminlte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
   </head>
-    <body class="skin-blue">
+    <body>
     <div class="wrapper">
 
       <header class="main-header">
@@ -45,7 +45,7 @@
           </div>
           <div class="navbar-custom-menu" style="float:left;margin-left:50px;">
               <ul class="nav navbar-nav menu-nav2">
-                  <li><a style="padding:15px;height:58px;background-color:#367FAA;" href="<?php echo base_url(); ?>pegawai/proses_seleksi_ppa">Proses Seleksi</a></li>
+                  <li><a style="padding:15px;height:58px;background-color:#C74433;" href="<?php echo base_url(); ?>pegawai/proses_seleksi_ppa">Proses Seleksi</a></li>
                   <li><a style="padding:15px;height:58px;" href="<?php echo base_url(); ?>pegawai/hasil_seleksi_ppa">Hasil Seleksi</a></li>
               </ul>
           </div>
@@ -78,82 +78,70 @@
           <div class="row">
             <!-- Left col -->
             <div class="col-sm-12 col-lg-12">
-              <table class="display">
+              <table class="display" style="border:0px;background-color:#DD4B39;">
                 <thead>
                   <tr>
-                    <th style="border:0px;border-right:5px;border-style:solid;border-color:black;"><a href="<?php echo base_url(); ?>pegawai/proses_seleksi_ppa">Beasiswa PPA</a></th>
-                    <th style="background-color:#367FAA;border:0px;"><a href="<?php echo base_url(); ?>pegawai/proses_seleksi_bpp">Beasiswa BPP</a></th>
+                    <th style="border:0px;background-color:#DD4B39;"><a href="<?php echo base_url(); ?>pegawai/proses_seleksi_ppa">Beasiswa PPA</a></th>
+                    <th style="border:0px;background-color:#C74433;"><a href="<?php echo base_url(); ?>pegawai/proses_seleksi_bpp">Beasiswa BPP</a></th>
                   </tr>
                 </thead>
               </table>
-              <table class="display" style="margin-bottom:0px;">
+              <table class="display" style="margin-top:30px;margin-bottom:20px;border:0px;">
                 <thead>
                   <tr>
-                    <th style="background-color:#ECF0F5;color:black;">Proses Seleksi Beasiswa BPP</th>
+                    <th style="background-color:#ECF0F5;color:black;border:0px;">Proses Seleksi Beasiswa BPP</th>
                   </tr>
                 </thead>
               </table>
-              <table class="display">
-                <thead>
-                  <tr>
-                    <th>No</th>
-                    <th>Nama Mahasiswa Pendaftar</th>
-                    <th>IPK</th>
-                    <th>Semester</th>
-                    <th>Gaji Orang Tua</th>
-                    <th>Tanggungan</th>
-                    <th>Keaktifan Organisasi</th>
-                  </tr>
-                </thead>
+              <table class="display" style="border-color:black;">
+              <?php
+                $this->db->order_by("ranking", "asc");
+                $query = $this->db->get_where('form_beasiswa_bpp');
+                $count=0;
+                foreach ($query->result() as $row) {
+                  $count++;}
+                if($count!=0)
+                  echo '<thead>
+                          <tr>
+                            <th style="background-color:#DD4B39;">No</th>
+                            <th style="background-color:#DD4B39;">Nama Mahasiswa Pendaftar</th>
+                            <th style="background-color:#DD4B39;">IPK</th>
+                            <th style="background-color:#DD4B39;">Semester</th>
+                            <th style="background-color:#DD4B39;">Gaji Orang Tua</th>
+                            <th style="background-color:#DD4B39;">Tanggungan</th>
+                            <th style="background-color:#DD4B39;">Keaktifan Organisasi</th>
+                          </tr>
+                        </thead>';
+                  else
+                    echo "<p style='text-align:center'>[Data kosong]</p>";
+                ?>
+                
                 <tbody>
-                  <tr class="odd">
-                    <td>1</td>
-                    <td>Qonita Luthfia Sutino</td>
-                    <td>3.5</td>
-                    <td>7</td>
-                    <td>1</td>
-                    <td>3</td>
-                    <td>10</td>
-                  </tr>
-                  <tr class="even">
-                    <td>2</td>
-                    <td>Qonita Luthfia Sutino</td>
-                    <td>3.5</td>
-                    <td>7</td>
-                    <td>1</td>
-                    <td>3</td>
-                    <td>10</td>
-                  </tr>
-                  <tr class="odd">
-                    <td>3</td>
-                    <td>Qonita Luthfia Sutino</td>
-                    <td>3.5</td>
-                    <td>7</td>
-                    <td>1</td>
-                    <td>3</td>
-                    <td>10</td>
-                  </tr>
-                  <tr class="even">
-                    <td>4</td>
-                    <td>Qonita Luthfia Sutino</td>
-                    <td>3.5</td>
-                    <td>7</td>
-                    <td>1</td>
-                    <td>3</td>
-                    <td>10</td>
-                  </tr>
-                  <tr class="odd">
-                    <td>5</td>
-                    <td>Qonita Luthfia Sutino</td>
-                    <td>3.5</td>
-                    <td>7</td>
-                    <td>1</td>
-                    <td>3</td>
-                    <td>10</td>
-                  </tr>
-                </tbody>
+                <?php
+                $query = $this->db->get('form_beasiswa_bpp');
+                foreach ($query->result() as $row) {
+                  echo "<tr class='";
+                  if($row->id_form%2==0)
+                    echo "even'>";
+                  else
+                    echo "odd'>";
+                  echo "<td>".$row->id_form."</td>";
+                  echo "<td>".$row->nama_mhs."</td>";
+                  echo "<td>".$row->ipk."</td>";
+                  echo "<td>".$row->smt."</td>";
+                  echo "<td>".$row->penghasilan."</td>";
+                  echo "<td>".$row->jml_tanggungan."</td>";
+                  echo "<td>".$row->prestasi."</td>";
+                  echo "</tr>";
+                }
+                ?>
+                  </tbody>
               </table>
-              <input id="submit-btn" class="btn btn-primary col-sm-12" style="background-color:#3C8DBC;margin-top:20px;" type="submit" value="Proses Data">
+              <?php
+              if($count!=0)
+                echo '<a href="'.base_url().'pegawai/hitung_skor_bpp" class="btn btn-primary col-sm-12" style="background-color:#DD4B39;margin-top:20px;border:0px;">Proses Data</a>';
+              ?>
+              
             </div>
           </div><!-- /.row (main row) -->
         </section><!-- /.content -->

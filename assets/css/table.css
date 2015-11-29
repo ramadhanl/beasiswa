@@ -64,7 +64,7 @@ body {
 table{
 	border: 1px;
 	border-style: solid;
-	border-color: #3C8DBC;
+	border-color: black;
 	border-radius: 40px;
 }
 table tr th a{
@@ -83,19 +83,19 @@ table thead tr {
 	height: 30px; 
 }
 table thead th {
-	border-right: 1px solid #3C8DBC;
+	border-right: 1px solid black;
 	color: white;
 	font-size: 15px; 
 	text-align: center;
 }
 table thead th:last-of-type { border-right: none; }
 table tbody {
-	border-top: 1px solid #3C8DBC;
-	border-bottom: 1px solid #3C8DBC;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
 }
 table tr.odd { background-color: #fff; }
 table tr.even { background-color: #f6f6f6; }
-table td { padding: 8px 10px; border-right: 1px solid #3C8DBC; }
+table td { padding: 8px 10px; border-right: 1px solid black; }
 table tbody tr:hover { background-color: #ddd; }
 table thead th:hover { background-color: #367FAA; }
 
