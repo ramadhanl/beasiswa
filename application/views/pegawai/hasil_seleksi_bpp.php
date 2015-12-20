@@ -92,6 +92,7 @@
                     <th style="background-color:#ECF0F5;color:black;border:0px;">Hasil Seleksi Beasiswa BPP</th>
                   </tr>
                 </thead>
+                <a style="display:block;border-radius:3px;padding: 10px;margin-bottom:10px;background-color:#ECF0F5;width:160px;border:2px solid black;text-align:center;" href="<?php echo base_url();?>pegawai/create_excel_bpp">Download as excel</a>
               </table>
               <table class="display" style="border-color:black;">
               <?php
@@ -122,11 +123,11 @@
                   $count++;
                   echo "<tr style='";
                   if($row->ranking<=50)
-                    echo "border:1px solid black;background-color:#4285F4'>";
+                    echo "border:1px solid black;'>";
                   else
                     echo "border:1px solid black;'>";
                   echo "<td style='text-align:center'>".$row->ranking."</td>";
-                  echo "<td style='text-align:center'>".$row->nama_mhs."</td>";
+                  echo "<td style='text-align:center'><a href='".base_url()."pegawai/proses_seleksi_bpp'>".$row->nama_mhs."</a></td>";
                   echo "<td style='text-align:center'>".$row->entering_flow."</td>";
                   echo "<td style='text-align:center'>".$row->leaving_flow."</td>";
                   echo "<td style='text-align:center'>".$row->net_flow."</td>";

@@ -78,6 +78,7 @@
           <div class="row">
             <!-- Left col -->
             <div class="col-sm-12 col-lg-12">
+
               <table class="display">
                 <thead>
                   <tr>
@@ -93,6 +94,7 @@
                   </tr>
                 </thead>
               </table>
+              <a style="display:block;border-radius:3px;padding: 10px;margin-bottom:10px;background-color:#ECF0F5;width:160px;border:2px solid black;text-align:center;" href="<?php echo base_url();?>pegawai/create_excel_ppa">Download as excel</a>
               <table class="display" style="border-color:black;">
                 <?php
                 $this->db->order_by("ranking", "asc");
@@ -120,11 +122,11 @@
                 foreach ($query->result() as $row) {
                   echo "<tr style='";
                   if($row->ranking<=50)
-                    echo "border:1px solid black;background-color:#4285F4'>";
+                    echo "border:1px solid black;'>";
                   else
                     echo "border:1px solid black;'>";
                   echo "<td style='text-align:center'>".$row->ranking."</td>";
-                  echo "<td style='text-align:center'>".$row->nama_mhs."</td>";
+                  echo "<td style='text-align:center'><a href='".base_url()."pegawai/proses_seleksi_ppa'>".$row->nama_mhs."</a></td>";
                   echo "<td style='text-align:center'>".$row->entering_flow."</td>";
                   echo "<td style='text-align:center'>".$row->leaving_flow."</td>";
                   echo "<td style='text-align:center'>".$row->net_flow."</td>";

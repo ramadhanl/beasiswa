@@ -78,7 +78,7 @@
           <div class="row">
             <!-- Left col -->
             <div class="col-sm-12 col-lg-12">
-              <table class="display" style="border:0px;background-color:#DD4B39;">
+            <table class="display" style="border:0px;background-color:#DD4B39;">
                 <thead>
                   <tr>
                     <th style="border:0px;background-color:#C74433;"><a href="<?php echo base_url(); ?>pegawai/proses_seleksi_ppa">Beasiswa PPA</a></th>

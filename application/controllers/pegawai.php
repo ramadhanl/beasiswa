@@ -13,6 +13,59 @@ class Pegawai extends CI_Controller {
 	{
 		$this->load->view('pegawai/proses_seleksi_ppa');
 	}
+	public function create_excel_ppa()
+	{
+		$this->load->library('excel');
+		$sheet = new PHPExcel();
+		$active_sheet = $sheet->getActiveSheet();
+		$active_sheet->setCellValue('A1','Peringkat');
+		$active_sheet->setCellValue('B1','NPM');
+		$active_sheet->setCellValue('C1','Nama Mahasiswa');
+		$this->db->order_by("ranking", "asc");
+		$sql=$this->db->get_where('form_beasiswa_ppa',array('status_lolos' => 1, ));
+		foreach ($sql->result() as $row) {
+			$peringkat='A'.($row->ranking+1);
+			$active_sheet->setCellValue($peringkat,$row->ranking);
+			$active_sheet->setCellValue("B".($row->ranking+1),$row->npm);
+			$active_sheet->setCellValue("C".($row->ranking+1),$row->nama_mhs);
+		}
+		foreach ($sheet->getWorksheetIterator() as $worksheet) {
+		    $sheet->setActiveSheetIndex($sheet->getIndex($worksheet));
+			$active_sheet = $sheet->getActiveSheet();
+		    $cellIterator = $active_sheet->getRowIterator()->current()->getCellIterator();
+		    $cellIterator->setIterateOnlyExistingCells(true);
+		    foreach ($cellIterator as $cell) {
+		        $active_sheet->getColumnDimension($cell->getColumn())->setAutoSize(true);
+		    }
+		}
+		header('Content-Type: application/vnd.openxmlformats-officedocuments.spreadsheetml.sheet');
+		header('Content-Disposition: attachment;filename="hasil_seleksi_ppa.xlsx');
+		header('Cache-Control: max-age=0'); 
+		$objWriter = PHPExcel_IOFactory::createWriter($sheet, "Excel2007");
+		$objWriter->save('php://output');
+	}
+	public function create_excel_bpp()
+	{
+		$this->load->library('excel');
+		$sheet = new PHPExcel();
+		$active_sheet = $sheet->getActiveSheet();
+		$active_sheet->setCellValue('A1','Peringkat');
+		$active_sheet->setCellValue('B1','NPM');
+		$active_sheet->setCellValue('C1','Nama Mahasiswa');
+		$this->db->order_by("ranking", "asc");
+		$sql=$this->db->get_where('form_beasiswa_bpp',array('status_lolos' => 1, ));
+		foreach ($sql->result() as $row) {
+			$peringkat='A'.($row->ranking+1);
+			$active_sheet->setCellValue($peringkat,$row->ranking);
+			$active_sheet->setCellValue("B".($row->ranking+1),$row->npm);
+			$active_sheet->setCellValue("C".($row->ranking+1),$row->nama_mhs);
+		}
+		header('Content-Type: application/vnd.openxmlformats-officedocuments.spreadsheetml.sheet');
+		header('Content-Disposition: attachment;filename="hasil_seleksi_bpp.xlsx');
+		header('Cache-Control: max-age=0'); 
+		$objWriter = PHPExcel_IOFactory::createWriter($sheet, "Excel2007");
+		$objWriter->save('php://output');
+	}
 	public function hitung_skor_ppa()
 	{
 		$this->db->select_max('id_form');
@@ -102,33 +155,59 @@ class Pegawai extends CI_Controller {
 									$hd2[$i]=1;
 						    	break;
 						    case 5:
-						    	if($d[$i]<=$par->q)
+						    	if($d[$i]<=$par->q){
 									$hd[$i]=0;
-								else if($d[$i]<=$par->p)
-									$hd[$i]=($d[$i]-$par->q)/($par->q-$par->p);
-								else
+									//echo "nol";
+						    	}
+								else if($d[$i]<=$par->p){
+									$hd[$i]=($d[$i]-$par->q)/($par->p-$par->q);
+									//echo "tengah";
+								}
+								else{
 									$hd[$i]=1;
+									//echo "satu";
+								}
 
 								if($d2[$i]<=$par->q)
 									$hd2[$i]=0;
 								else if($d2[$i]<=$par->p)
-									$hd2[$i]=($d2[$i]-$par->q)/($par->q-$par->p);
+									$hd2[$i]=($d2[$i]-$par->q)/($par->p-$par->q);
 								else
 									$hd2[$i]=1;
 						    	break;
 						}
+					//echo "<br>atr1,atr2(".$atr1[$i]." - ".$atr2[$i].")";
+					//echo "<br>(hd:".$hd[$i].",tipe:".$par->tipe.",d:".$d[$i].",q:".$par->q.",p:".$par->p.",bobot:".$par->bobot.")<br>";
+					//echo "<br>(hd2:".$hd2[$i].",tipe:".$par->tipe.",d:".$d2[$i].",q:".$par->q.",p:".$par->p.",bobot:".$par->bobot.")<br>+ ";
 					$indeks=($hd[$i]*$par->bobot)+$indeks;
 					$indeks2=($hd2[$i]*$par->bobot)+$indeks2;
+
 					}
+					//echo "Mhs".$id2.":".round($indeks,2)."|<br>";
+					//echo "(".$hd[1]."+".$hd[2]."+".$hd[3]."+".$hd[4]."+".$hd[5].")"." <br><br> ";
+					//echo "<br>|indeks1 = ".round($indeks,3)."|indeks2 = ".round($indeks2,3).")<br><br><br>";
+					
+					//if($id2%5==0)
+						//echo "<br>";
+					$leaving_flow=$leaving_flow+$indeks;
+					$entering_flow=$entering_flow+$indeks2;
 				}
-			$leaving_flow=$leaving_flow+$indeks;
-			$entering_flow=$entering_flow+$indeks2;
-			}
-			$leaving_flow=(1/$total)*$leaving_flow;
-			$entering_flow=(1/$total)*$entering_flow;
+			
+			
+			//echo "<h4>".$leaving_flow."</h4>";
+		}
+			//echo "<h4>".$leaving_flow."</h4>";
+			$leaving_flow=(1/($total-1))*$leaving_flow;
+			$entering_flow=(1/($total-1))*$entering_flow;
+			$net_flow=$leaving_flow-$entering_flow;
+			//echo "<h3>leaving_flow(Mhs".$id1.") : ".round($leaving_flow,3)."</h3>";
+			//echo "<h3>entering_flow(Mhs".$id1.") : ".round($entering_flow,3)."</h3>";
+			//echo "<h3>NET_FLOW(Mhs".$id1.") : ".round($leaving_flow-$entering_flow,3)."</h3>";
 			$data = array('leaving_flow' => $leaving_flow,'entering_flow' =>$entering_flow,'net_flow' =>$leaving_flow-$entering_flow);
 			$this->db->where('id_form', $id1);
 			$this->db->update('form_beasiswa_ppa', $data);
+			$leaving_flow=0;
+			$entering_flow=0;
 		}
 		$this->db->select('*');
 		$this->db->from('form_beasiswa_ppa');
@@ -145,7 +224,7 @@ class Pegawai extends CI_Controller {
 			$this->db->update('form_beasiswa_ppa', $data);
 			$count++;
 		}
-		redirect(base_url("pegawai/proses_seleksi_ppa"));
+		redirect(base_url("pegawai/hasil_seleksi_ppa"));
 	}
 
 	public function random_ppa()
@@ -186,6 +265,7 @@ class Pegawai extends CI_Controller {
 	{
 		$this->load->view('pegawai/proses_seleksi_bpp');
 	}
+
 	public function hitung_skor_bpp()
 	{
 		$this->db->select_max('id_form');
@@ -275,33 +355,59 @@ class Pegawai extends CI_Controller {
 									$hd2[$i]=1;
 						    	break;
 						    case 5:
-						    	if($d[$i]<=$par->q)
+						    	if($d[$i]<=$par->q){
 									$hd[$i]=0;
-								else if($d[$i]<=$par->p)
-									$hd[$i]=($d[$i]-$par->q)/($par->q-$par->p);
-								else
+									//echo "nol";
+						    	}
+								else if($d[$i]<=$par->p){
+									$hd[$i]=($d[$i]-$par->q)/($par->p-$par->q);
+									//echo "tengah";
+								}
+								else{
 									$hd[$i]=1;
+									//echo "satu";
+								}
 
 								if($d2[$i]<=$par->q)
 									$hd2[$i]=0;
 								else if($d2[$i]<=$par->p)
-									$hd2[$i]=($d2[$i]-$par->q)/($par->q-$par->p);
+									$hd2[$i]=($d2[$i]-$par->q)/($par->p-$par->q);
 								else
 									$hd2[$i]=1;
 						    	break;
 						}
+					//echo "<br>atr1,atr2(".$atr1[$i]." - ".$atr2[$i].")";
+					//echo "<br>(hd:".$hd[$i].",tipe:".$par->tipe.",d:".$d[$i].",q:".$par->q.",p:".$par->p.",bobot:".$par->bobot.")<br>";
+					//echo "<br>(hd2:".$hd2[$i].",tipe:".$par->tipe.",d:".$d2[$i].",q:".$par->q.",p:".$par->p.",bobot:".$par->bobot.")<br>+ ";
 					$indeks=($hd[$i]*$par->bobot)+$indeks;
 					$indeks2=($hd2[$i]*$par->bobot)+$indeks2;
+
 					}
+					//echo "Mhs".$id2.":".round($indeks,2)."|<br>";
+					//echo "(".$hd[1]."+".$hd[2]."+".$hd[3]."+".$hd[4]."+".$hd[5].")"." <br><br> ";
+					//echo "<br>|indeks1 = ".round($indeks,3)."|indeks2 = ".round($indeks2,3).")<br><br><br>";
+					
+					//if($id2%5==0)
+						//echo "<br>";
+					$leaving_flow=$leaving_flow+$indeks;
+					$entering_flow=$entering_flow+$indeks2;
 				}
-			$leaving_flow=$leaving_flow+$indeks;
-			$entering_flow=$entering_flow+$indeks2;
-			}
-			$leaving_flow=(1/$total)*$leaving_flow;
-			$entering_flow=(1/$total)*$entering_flow;
+			
+			
+			//echo "<h4>".$leaving_flow."</h4>";
+		}
+			//echo "<h4>".$leaving_flow."</h4>";
+			$leaving_flow=(1/($total-1))*$leaving_flow;
+			$entering_flow=(1/($total-1))*$entering_flow;
+			$net_flow=$leaving_flow-$entering_flow;
+			//echo "<h3>leaving_flow(Mhs".$id1.") : ".round($leaving_flow,3)."</h3>";
+			//echo "<h3>entering_flow(Mhs".$id1.") : ".round($entering_flow,3)."</h3>";
+			//echo "<h3>NET_FLOW(Mhs".$id1.") : ".round($leaving_flow-$entering_flow,3)."</h3>";
 			$data = array('leaving_flow' => $leaving_flow,'entering_flow' =>$entering_flow,'net_flow' =>$leaving_flow-$entering_flow);
 			$this->db->where('id_form', $id1);
 			$this->db->update('form_beasiswa_bpp', $data);
+			$leaving_flow=0;
+			$entering_flow=0;
 		}
 		$this->db->select('*');
 		$this->db->from('form_beasiswa_bpp');
@@ -318,7 +424,7 @@ class Pegawai extends CI_Controller {
 			$this->db->update('form_beasiswa_bpp', $data);
 			$count++;
 		}
-		redirect(base_url("pegawai/proses_seleksi_bpp"));
+		redirect(base_url("pegawai/hasil_seleksi_bpp"));
 	}
 	public function hasil_seleksi_ppa()
 	{
