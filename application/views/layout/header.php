@@ -5,11 +5,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html>
 <head>
 	<title>Sistem Informasi Beasiswa</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-	<script type='text/javascript' src='//code.jquery.com/jquery-1.9.1.js'></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,300italic,400italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
-	<link href='https://fonts.googleapis.com/css?family=Ubuntu:400,400italic,600,600italic' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="<?php echo base_url(); ?>static/css/bootstrap.min.css">
+	<script type='text/javascript' src='<?php echo base_url(); ?>static/js/jquery-1.9.1.js'></script>
+	<script src="<?php echo base_url(); ?>static/js/bootstrap.min.js"></script>
+	<link href='<?php echo base_url(); ?>static/css/font.css' rel='stylesheet' type='text/css'>
+	<link href='<?php echo base_url(); ?>static/css/font2.css' rel='stylesheet' type='text/css'>
 	<link href='<?php echo base_url(); ?>static/css/rbtc.css' rel='stylesheet' type='text/css'>
 	<link href='<?php echo base_url(); ?>static/css/kp.css' rel='stylesheet' type='text/css'>
 </head>
