@@ -48,15 +48,13 @@ class Mahasiswa extends CI_Controller {
 		if(!$this->upload->do_upload('userfile')){
 			$upload_data = $this->upload->data();
 			echo $this->upload->display_errors();
-			$sukses=0;
+			$prestasi=0;
 		}
 		else{
-			echo "sukses";
 			$file_data = $this->upload->data();
 			$data = base_url().'images/'.$file_data['file_name'];
-			$sukses=1;
+			$prestasi=1;
 		}
-		$prestasi=1;
 		$data = array('npm' => $this->input->post('npm'),'nama_mhs' => $this->input->post('nama_mhs'),'jk' => $this->input->post('jk'),'prodi' => $this->input->post('prodi'),'jenjang' => $this->input->post('jenjang'),'smt' => $this->input->post('smt'),'ipk' => $this->input->post('ipk'),'pekerjaan' => $this->input->post('pekerjaan'),'jml_tanggungan' => $this->input->post('jml_tanggungan'),'penghasilan' => $this->input->post('penghasilan'),'prestasi' => $prestasi,'alamat' => $this->input->post('alamat'),'telepon' => $this->input->post('telepon'),);
 		$this->load->database('beasiswa');
 		$this->load->model('Beasiswa_models','bea');
