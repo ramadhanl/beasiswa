@@ -4,14 +4,14 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-6">
-						&copy; <?php echo date('Y'); ?> Tugas Akhir [Nama Mahasiswa] | Jurusan Sistem Informasi<br>
+						&copy; <?php echo date('Y'); ?> Tugas Akhir Yuliana | Jurusan Sistem Informasi<br>
 						Fakultas Teknologi Informasi | Institut Teknologi Sepuluh Nopember<br>
-						Jl. Teknik Kimia, Gedung Teknik Informatika, Kampus ITS Sukolilo, Surabaya, 60111<br />
+						Jalan Raya ITS, Surabaya, Jawa Timur 60111<br />
 					</div>
 					<div class="col-md-6 text-right">
-						Telp: [telepon]<br />
-						Fax: [no fax]<br />
-						Email: [email mahasiswa]
+						Telp	: (031) 5999944<br />
+						Fax		: (031) 5964965<br />
+						Email 	: yulianafahriza@gmail.com 
 					</div>
 				</div>
 			</div>

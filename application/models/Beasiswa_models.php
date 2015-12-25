@@ -20,7 +20,9 @@ class Beasiswa_models extends CI_Model {
             'privilege' =>$sql->row()->privilege
          );
          $this->session->set_userdata($session);
+         return 1;
       }
+      else return 0;
    }
 
    //MAHASISWA

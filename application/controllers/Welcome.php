@@ -25,7 +25,6 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		
 		$this->load->view('layout/header',array('display'=>'welcome'));
 		$this->load->view('beranda');
 		$this->load->view('layout/footer');
@@ -35,8 +34,10 @@ class Welcome extends CI_Controller {
 	{
 		$this->load->database('beasiswa');
 		$this->load->model('Beasiswa_models','bea');
-		$this->bea->login($this->input->post('username'),$this->input->post('password'));
-		redirect(base_url(""));		
+		$status = $this->bea->login($this->input->post('username'),$this->input->post('password'));
+		$this->load->view('layout/header',array('display'=>'welcome'));
+		$this->load->view('beranda',array('status'=>$status));
+		$this->load->view('layout/footer');	
 	}
 	
 	public function logout()
@@ -44,6 +45,6 @@ class Welcome extends CI_Controller {
 		$this->session->unset_userdata('username');
 		$this->session->unset_userdata('nama');
 		$this->session->sess_destroy();
-		redirect(base_url());
+		redirect(base_url(''));
 	}
 }

@@ -1,6 +1,6 @@
 <div class="col-md-12" style="background:none;">
 	<h3 class="box-title">Formulir Pendaftaran Beasiswa PPA</h3>
-	<form action="<?php echo base_url(); ?>Mahasiswa/insert_data/ppa" method="post">
+	<form action="<?php echo base_url(); ?>Mahasiswa/insert_data/ppa" method="post" enctype="multipart/form-data">
 		<div class="col-md-6" style="height:541px;background:none;">
 			<div class="form-group">
 				<label>NPM :</label><input type="text" class="form-control" name="npm" placeholder="NPM">
@@ -74,10 +74,7 @@
 			</div>
 			<div class="form-group">
 				<label>Prestasi :</label>
-				<select name="prestasi" class="form-control">
-					<option value="1">Ada</option>
-					<option value="0">Tidak ada</option>
-				</select>
+				<input type="file" name="userfile" class="form-control">
 			</div>
 			<div class="form-group">
 				<label>Alamat :</label><input type="text" class="form-control" name="alamat" placeholder="Alamat">

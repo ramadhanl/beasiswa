@@ -1,3 +1,6 @@
+				<?php if(isset($status) && $status==0){?>
+					<p style="float:right;color:#ED1C24;margin-right:20px;">Username/password yang anda masukkan tidak terdaftar</p>
+				<?php }?>
 				<div class="col-md-12">
 					<div class="jumbotron">
 						<div class="container">
