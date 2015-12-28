@@ -51,8 +51,14 @@
 		</div>
 		<div class="col-md-6" style="height:541px;background:none;">
 			<div class="form-group">
-				<label>Pekerjaan :</label>
-				<input type="text" class="form-control" name="pekerjaan" placeholder="Pekerjaan">
+				<label>Pekerjaan Kepala rumah tangga :</label>
+				<div>
+					<select name="pekerjaan" class="form-control">
+						<option value="pns">Pegawai Negeri Sipil (PNS)</option>
+						<option value="wiraswasta">Wiraswasta</option>
+						<option value="tidak bekerja">Belum / Tidak bekerja</option>
+					</select>
+				</div>
 			</div>
 			<div class="form-group">
 				<label>Tanggungan :</label>
@@ -73,8 +79,12 @@
 				</div>
 			</div>
 			<div class="form-group">
+				<label>Slip gaji :</label>
+				<input type="file" name="f_slipgaji" class="form-control">
+			</div>
+			<div class="form-group">
 				<label>Prestasi :</label>
-				<input type="file" name="userfile" class="form-control">
+				<input type="file" name="f_prestasi" class="form-control">
 			</div>
 			<div class="form-group">
 				<label>Alamat :</label><input type="text" class="form-control" name="alamat" placeholder="Alamat">

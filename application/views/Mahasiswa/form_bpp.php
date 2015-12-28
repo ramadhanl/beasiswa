@@ -52,7 +52,13 @@
 		<div class="col-md-6" style="height:541px;background:none;">
 			<div class="form-group">
 				<label>Pekerjaan Kepala rumah tangga :</label>
-				<input type="text" class="form-control" name="pekerjaan" placeholder="Pekerjaan">
+				<div>
+					<select name="pekerjaan" class="form-control">
+						<option value="pns">Pegawai Negeri Sipil (PNS)</option>
+						<option value="wiraswasta">Wiraswasta</option>
+						<option value="tidak bekerja">Belum / Tidak bekerja</option>
+					</select>
+				</div>
 			</div>
 			<div class="form-group">
 				<label>Tanggungan :</label>
@@ -73,8 +79,16 @@
 				</div>
 			</div>
 			<div class="form-group">
+				<label>Slip gaji :</label>
+				<input type="file" name="f_slipgaji" class="form-control">
+			</div>
+			<div class="form-group">
+				<label>Surat keterangan tidak mampu :</label>
+				<input type="file" name="f_sktm" class="form-control">
+			</div>
+			<div class="form-group">
 				<label>Prestasi :</label>
-				<input type="file" name="userfile" class="form-control">
+				<input type="file" name="f_prestasi" class="form-control">
 			</div>
 			<div class="form-group">
 				<label>Alamat :</label><input type="text" class="form-control" name="alamat" placeholder="Alamat">
@@ -84,6 +98,6 @@
 				<input type="text" class="form-control" name="telepon" placeholder="Telepon">
 			</div>
 		</div>
-	<input id="submit-btn" class="btn col-sm-12" style="background-color:#B9B9B9;color:white;" type="submit" value="Kirim formulir">
+	<input id="submit-btn" class="btn col-sm-12" style="margin-top:50px;background-color:#B9B9B9;color:white;" type="submit" value="Kirim formulir">
 	</form>
 </div>
